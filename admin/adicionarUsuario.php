@@ -1,4 +1,5 @@
 <?php
+include 'verificaLogin.php';
 include 'inc/header.php'; 
 ?>
 <main>

@@ -18,9 +18,14 @@
                 </div>
                 <nav>
                     <ul class="menu">
-                        <li><a href="admin.php"><i class="fas fa-home"></i> <span>Home</span></a></li>
-                        <li><a href="gestaoUsuario.php"><i class="fas fa-users"></i> <span>Gestão de Usuários</span></a></li>
-                        <li><a href="gestaoVideos.php"><i class="fas fa-video"></i> <span>Gestão de Vídeos</span></a></li>
+                        <?php if (!empty($_SESSION['logado'])): ?>
+                            <li><a href="admin.php"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                            <li><a href="gestaoUsuario.php"><i class="fas fa-users"></i> <span>Gestão de Usuários</span></a></li>
+                            <li><a href="gestaoVideos.php"><i class="fas fa-video"></i> <span>Gestão de Vídeos</span></a></li>
+                            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Sair</span></a></li>
+                        <?php else: ?>
+                            <li><a href="../index.php"><i class="fas fa-arrow-left"></i> <span>Voltar ao site</span></a></li>
+                        <?php endif; ?>
                     </ul>
                 </nav>
             </div>

@@ -1,6 +1,6 @@
 <?php
-include '../classes/usuarios.php';
-$usuario = new Usuario();
+include 'verificaLogin.php';
+
 
 if(!empty ($_POST['email'])) {
     $nome = $_POST['nome'];

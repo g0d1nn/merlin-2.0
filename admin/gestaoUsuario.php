@@ -1,7 +1,7 @@
-<?php include 'inc/header.php'; 
-include '../classes/usuarios.php';
+<?php 
+include 'verificaLogin.php';
+include 'inc/header.php'; 
 
-$usuario = new Usuario();
 
 ?>
 <main>

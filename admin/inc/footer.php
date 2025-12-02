@@ -2,7 +2,6 @@
         <script src="js/sweetalert2.min.js"></script>
         <script src="js/avisos.js"></script>
         <script>
-            // Destacar link ativo no menu
             document.addEventListener('DOMContentLoaded', function() {
                 const currentPage = window.location.pathname.split('/').pop();
                 const menuLinks = document.querySelectorAll('header nav li a');

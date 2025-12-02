@@ -1,4 +1,6 @@
-<?php include 'inc/header.php'; 
+<?php 
+include 'verificaLogin.php';
+include 'inc/header.php'; 
 include '../classes/videos.php';
 
 $video = new Video();

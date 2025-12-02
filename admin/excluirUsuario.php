@@ -1,6 +1,5 @@
 <?php 
-include '../classes/usuarios.php';
-$usuario = new Usuario();
+include 'verificaLogin.php';
 
 if(!empty($_GET['id_usuario'])){
     $id = $_GET['id_usuario'];

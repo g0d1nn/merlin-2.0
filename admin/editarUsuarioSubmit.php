@@ -1,6 +1,6 @@
 <?php
-include '../classes/usuarios.php';
-$usuario = new Usuario();
+include 'verificaLogin.php';
+
 
 if(!empty ($_POST['id'])) {
     $nome = $_POST['nome'];
@@ -9,7 +9,7 @@ if(!empty ($_POST['id'])) {
     $permissao = isset($_POST['permissoes']) ? implode(',', $_POST['permissoes']) : '';
     $id = $_POST['id'];
 
-    if(!empty($email)) {
+    if(!empty($email)) { 
         if(empty($senha)) {
             $info = $usuario->buscar($id);
             $senha = $info['senha'];
