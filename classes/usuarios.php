@@ -134,6 +134,45 @@ class Usuario {
         $sql->execute();
     }
 
+        //login
+
+    public function fazerLogin($email, $senha) {
+        $sql = $this->con->conectar()->prepare("SELECT * from usuario WHERE email = :email AND senha = :senha");
+        $sql->bindValue(':email', $email);
+        $sql->bindValue(':senha', $senha);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $sql = $sql->fetch();
+            $_SESSION['logado'] = $sql['id_usuario'];
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function setUsuario($id) {
+        $this->id = $id;
+        $sql = $this->con->conectar()->prepare(" SELECT * FROM usuario WHERE id_usuario = :id");
+        $sql->bindValue(':id', $this->id);
+        $sql->execute();
+
+        if($sql->rowCount()> 0) {
+            $sql = $sql->fetch();
+            $this->permissao = explode(',', $sql['permissao']);
+        }
+    }
+
+    public function temPermissao($p) {
+        if(in_array($p, $this->permissao)) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function getpermissao() {
+        return $this->permissao;
+    }
+
     /**
      * Marca um item de conteúdo (vídeo ou jogo) como completo
      * @param int $id_usuario ID do usuário

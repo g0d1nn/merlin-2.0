@@ -3,7 +3,12 @@ include 'inc/header.php';
 include '../classes/usuarios.php';
 include '../classes/videos.php';
 
+if(!isset($_SESSION['logado'])){
+    header("location: login.php");
+    exit;
+}
 $usuario = new Usuario();
+$usuario->setUsuario($_SESSION['logado']);
 $video = new Video();
 
 $totalUsuarios = count($usuario->listar());
